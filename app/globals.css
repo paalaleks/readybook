@@ -2,26 +2,103 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Alabaster */
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --alabaster-default: #f2efe7;
+  --alabaster-100: #3e3621;
+  --alabaster-200: #7b6c42;
+  --alabaster-300: #b09e6c;
+  --alabaster-400: #d1c7aa;
+  --alabaster-500: #f2efe7;
+  --alabaster-600: #f5f3ec;
+  --alabaster-700: #f8f6f1;
+  --alabaster-800: #faf9f6;
+  --alabaster-900: #fdfcfa;
+
+  --floral-white-default: #f8f5ee;
+  --floral-white-100: #45391c;
+  --floral-white-200: #8a7138;
+  --floral-white-300: #bfa463;
+  --floral-white-400: #dccca8;
+  --floral-white-500: #f8f5ee;
+  --floral-white-600: #f9f7f1;
+  --floral-white-700: #fbf9f4;
+  --floral-white-800: #fcfbf8;
+  --floral-white-900: #fefdfb;
+
+  --old-lace-default: #f3eddf;
+  --old-lace-100: #43371a;
+  --old-lace-200: #876e33;
+  --old-lace-300: #bfa057;
+  --old-lace-400: #d9c69a;
+  --old-lace-500: #f3eddf;
+  --old-lace-600: #f5f0e4;
+  --old-lace-700: #f7f4eb;
+  --old-lace-800: #faf7f2;
+  --old-lace-900: #fcfbf8;
+
+  --dim-gray-default: #717171;
+  --dim-gray-100: #161616;
+  --dim-gray-200: #2d2d2d;
+  --dim-gray-300: #434343;
+  --dim-gray-400: #5a5a5a;
+  --dim-gray-500: #717171;
+  --dim-gray-600: #8d8d8d;
+  --dim-gray-700: #a9a9a9;
+  --dim-gray-800: #c6c6c6;
+  --dim-gray-900: #e2e2e2;
+
+  --coral-default: #ff8a5b;
+  --coral-100: #451400;
+  --coral-200: #8b2700;
+  --coral-300: #d03b00;
+  --coral-400: #ff5816;
+  --coral-500: #ff8a5b;
+  --coral-600: #ffa17c;
+  --coral-700: #ffb99d;
+  --coral-800: #ffd0be;
+  --coral-900: #ffe8de;
+
+  --burgundy-default: #780116;
+  --burgundy-100: #180005;
+  --burgundy-200: #300009;
+  --burgundy-300: #49010e;
+  --burgundy-400: #610113;
+  --burgundy-500: #780116;
+  --burgundy-600: #c60226;
+  --burgundy-700: #fd1943;
+  --burgundy-800: #fd6681;
+  --burgundy-900: #feb2c0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  html {
+    scroll-behavior: smooth;
   }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  .input-style {
+    @apply relative h-14 block overflow-hidden rounded-md border border-dim-gray border-opacity-20 px-3 pt-4 focus-within:border-coral focus-within:ring-1 focus-within:ring-coral;
+  }
+  .input-style input {
+    @apply h-10 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm;
+  }
+  .input-style span {
+    @apply absolute start-3 top-3 -translate-y-1/2 text-xs text-dim-gray transition-all;
+  }
+
+  .coral-btn {
+    @apply inline-flex items-center w-full justify-center rounded border border-coral bg-coral px-12 py-3 font-medium text-floral-white h-12 focus:outline-none focus:ring active:text-coral hover:bg-coral-400 hover:bg-opacity-75 transition-all duration-300 ease-in-out;
+  }
+  .dim-gray-btn {
+    @apply inline-flex items-center w-full justify-center rounded border border-dim-gray bg-dim-gray px-12 py-3 font-medium text-floral-white h-12 focus:outline-none focus:ring active:text-floral-white hover:bg-dim-gray-400 hover:bg-opacity-90 transition-all duration-300 ease-in-out;
+  }
+  .alabaster-btn {
+    @apply px-4 py-2 rounded-lg bg-alabaster font-normal hover:bg-alabaster-400 hover:bg-opacity-20 transition-all duration-300 ease-in-out shadow-sm;
+  }
+  .alabaster-transparent-btn {
+    @apply alabaster-btn inline-flex items-center cursor-pointer bg-opacity-0 hover:bg-alabaster hover:shadow-sm justify-center shadow-none;
+  }
+  .alabaster-circle-btn {
+    @apply inline-flex items-center justify-center rounded-full alabaster-transparent-btn p-2;
+  }
 }
