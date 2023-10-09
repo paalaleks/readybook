@@ -4,6 +4,9 @@ const nextConfig = {
   images: {
     domains: ["firebasestorage.googleapis.com"],
   },
+  env: {
+    SENDGRID: process.env.NEXT_PUBLIC_SENDGRID,
+  },
 };
 
 module.exports = nextConfig;
